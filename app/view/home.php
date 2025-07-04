@@ -2,14 +2,7 @@
 // home.php - Vue pour la page d'accueil de Butterfly Photography
 require_once __DIR__ . '/../controler/messageControler.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $nom = $_POST['name'] ?? '';
-  $email = $_POST['email'] ?? '';
-  $subject = $_POST['subject'] ?? '';
-  $message = $_POST['message'] ?? '';
-  $controleur = new messageControler();
-  $resultat = $controleur->envoyerMessage($nom, $email, $subject, $message);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Butterfly_photography.com</title>
-  <link rel="stylesheet" href="/butterfly_photography/public/css/styles.css" />
+  <link rel="stylesheet" href="/butterfly_photography/public/css/style.css" />
   <link rel="icon" href="/butterfly_photography/public/images/logo.jpeg" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <section class="home-section">
     <div class="left">
       <img class="left-image-1" src="/butterfly_photography/public/images/image3.jpg" alt="" />
-      <img class="left-image-2" src="/butterfly_photography/public/images/imange2.jpg" alt="" />
+      <img class="left-image-2" src="/butterfly_photography/public/images/heroimg.jpg" alt="" />
     </div>
     <div class="right">
       <span class="text-right">Planifiez votre aventure</span>
@@ -261,7 +254,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p class="small-desc">
       Une question, un projet ou une demande de devis ? Remplissez le formulaire ci-dessous, nous vous répondrons rapidement.
     </p>
-    <form class="contact-form" method="post">
+    <form class="contact-form" method="post" action="../controler/messageControler.php
+      ç">
       <div class="form-group">
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" required />
@@ -367,7 +361,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </footer>
 
-  <script src="/butterfly_photography/public/js/script.js"></script>
+  <script src="/butterfly_photography/public/js/scroll.js"></script>
 </body>
 
 </html>

@@ -8,11 +8,17 @@ class messageControler extends Controler
 {
     public function index()
     {
-            $this->view('admin/message');
+        $this->view('admin/message');
     }
 
-    public function envoyerMessage($name, $email, $subject, $message)
+    public function envoyerMessage()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $subject = $_POST['subject'] ?? '';
+            $message = $_POST['message'] ?? '';
+        }
         // Validation simple
         if (empty($name) || empty($email) || empty($message)) {
             return ['success' => false, 'error' => 'Tous les champs sont obligatoires.'];
